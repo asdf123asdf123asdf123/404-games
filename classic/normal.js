@@ -15,7 +15,7 @@ while(document.body.children.length){
 	document.body.children[0].remove();
 }
 window.document.body.appendChild(document.createElement("div"))
-var hp=404,t=1,tt=500;
+var hp=404,t=1,tt=500,sc=0,scc=0;
 var canvas = document.createElement("canvas")
 var ctx = canvas.getContext("2d")
 window.document.body.appendChild(canvas)
@@ -38,9 +38,9 @@ window.addEventListener("mousemove", function (evt) { //监听点击事件
     mox=evt.x;
     moy=evt.y;
 })
-var mv=1,cl=1,sr=1,cnt=0;
+var cnt=0;
 function drawpoints() { //绘制粒子
-    document.body.children[0].innerHTML="<center><h1>"+hp+" Not Found</h1></center>";
+    document.body.children[0].innerHTML="<center><h1>"+hp+" Not Found</h1></center><hr><center>score/"+sc+"."+scc+" (Games)</center>";
     if(hp<=0){
     	return
 	}
@@ -114,7 +114,6 @@ function drawpoints() { //绘制粒子
             point.vy=-point.vy;
         }
     }
-    if(mv){
     for (let i = 0; i < points.length; i++) { //遍历粒子
         let point = points[i] //定义单个粒子
         ctx.beginPath()
@@ -144,8 +143,6 @@ function drawpoints() { //绘制粒子
         point.sy += point.vy * 3
         point.rt++;
     }
-    }
-    if(sr){
     for (let i = 0; i < srolls.length; i++) { //绘制点击效果
         if(i>1000){
             srolls.splice(i, 1);
@@ -272,7 +269,6 @@ function drawpoints() { //绘制粒子
             srolls.splice(i, 1)
         }
     }
-    }
     cnt++;
     if(cnt%50<t){
         srolls.push({
@@ -286,6 +282,9 @@ function drawpoints() { //绘制粒子
                     size:10
                 })
     }
+    if(cnt%50==0){
+    	scc++;
+	}
     if(cnt==tt){
         t++;
         tt-=50;
@@ -293,6 +292,7 @@ function drawpoints() { //绘制粒子
             tt=100;
         }
         cnt=0;
+        sc++;
         for (var i = 0; i < 15; i++) { //添加15个粒子
         points.push({
             sx: mx, //鼠标当前坐标作为粒子坐标
