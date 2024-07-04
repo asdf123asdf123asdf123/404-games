@@ -2,7 +2,7 @@ function get(name){
 	var radio = document.getElementsByName(name);
 	for (i=0; i<radio.length; i++) {
 		if (radio[i].checked) {
-			alert(radio[i].value)
+			return radio[i].value
 		}
 	}
 }
