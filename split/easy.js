@@ -31,8 +31,21 @@ function drawpoints() { //绘制粒子
     if(hp<=0){
     	return
 	}
-    mx+=(mox-mx)/20; //x轴及y轴的移动向量，取值范围为-0.5 ~ 0.5
-    my+=(moy-my)/20;
+	var deg=Math.atan((mox-mx)/(moy-my));
+	if(moy-my<=0)
+		deg+=Math.PI;
+	if(Math.abs((mox-mx)/10)<Math.abs(20*Math.sin(deg))){
+		mx+=(mox-mx)/10;
+	}
+	else{
+		mx+=20*Math.sin(deg);
+	}
+	if(Math.abs((moy-my)/10)<Math.abs(20*Math.cos(deg))){
+		my+=(moy-my)/10;
+	}
+	else{
+		my+=20*Math.cos(deg);
+	}
     for (let i = 0; i < points.length; i++){
         let point=points[i]
         if(Math.pow((mx-(point.sx+point.size/2)),2)+Math.pow((my-(point.sy+point.size/2)),2)<=Math.pow(point.size+5,2))
