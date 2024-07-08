@@ -79,8 +79,8 @@ function drawpoints() { //绘制粒子
 			points.push({
 	                    sx: point.sx,
 	                    sy: point.sy,
-	                   vx: (mx-point.sx)/200,
-	                   vy: (my-point.sy)/200,
+	                   vx: (mx-point.sx)/100,
+	                   vy: (my-point.sy)/100,
 	                    life: live*100,
 	                    color:colors[parseInt(Math.random() * colors.length)],
 	                    size:10,
