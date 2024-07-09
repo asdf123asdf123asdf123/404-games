@@ -4,7 +4,7 @@ while(document.body.children.length){
 	document.body.children[0].remove();
 }
 window.document.body.appendChild(document.createElement("div"))
-var hp=404,t=100,tt=10,sc=0;
+var hp=404,t=1,tt=10,sc=0;
 var canvas = document.createElement("canvas")
 var ctx = canvas.getContext("2d")
 window.document.body.appendChild(canvas)
@@ -89,7 +89,23 @@ function drawpoints() { //绘制粒子
     }
     if(cnt%50==0){
         sc++;
-		for(let i=innerHeight-100;i<=innerHeight;i+=10){
+		for(let i=innerHeight-100-t;i<=innerHeight;i+=10){
+	        points.push({
+	            sx: innerWidth-1,
+	            sy: i,
+                vx: -2,
+                vy: 0,
+	            color:colors[parseInt(Math.random() * colors.length)],
+	            size:10
+	        })
+	        points.push({
+	            sx: 1,
+	            sy: i,
+                vx: 2,
+                vy: 0,
+	            color:colors[parseInt(Math.random() * colors.length)],
+	            size:10
+	        })
 	        points.push({
 	            sx: innerWidth-1,
 	            sy: i,
@@ -106,19 +122,13 @@ function drawpoints() { //绘制粒子
 	            color:colors[parseInt(Math.random() * colors.length)],
 	            size:10
 	        })
+		}
+		for(let i=mx-100;i<=mx+100;i+=10){
 	        points.push({
-	            sx: innerWidth-1,
-	            sy: i,
-                vx:-2,
-                vy:0,
-	            color:colors[parseInt(Math.random() * colors.length)],
-	            size:10
-	        })
-	        points.push({
-	            sx: 1,
-	            sy: i,
-                vx:2,
-                vy:0,
+	            sx: i,
+	            sy: 0,
+                vx: 0,
+                vy: 10,
 	            color:colors[parseInt(Math.random() * colors.length)],
 	            size:10
 	        })
