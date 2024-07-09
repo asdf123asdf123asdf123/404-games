@@ -66,8 +66,9 @@ function drawpoints() { //绘制粒子
         if (point.life <= 0) { //生命值为0则从粒子数组中删除
             points.splice(i, 1)
         }
-        point.sx += point.vx * 3 //根据向量值改变粒子位置
-        point.sy += point.vy * 3
+        point.dis-=5;
+        point.sx=point.tx+Math.sin(point.r)*point.dis;
+        point.sy=point.ty+Math.cos(point.r)*point.dis;
     }
     
     if(cnt%50==0){
@@ -75,11 +76,13 @@ function drawpoints() { //绘制粒子
     	for(let i=1;i<=t;i++){
 			var deg=Math.random()*2*Math.PI;
 	        points.push({
+                dis:500,
+                r:deg,
 	            sx: mx+Math.sin(deg)*500,
 	            sy: my+Math.cos(deg)*500,
-	            vx: -Math.sin(deg)*2, //x轴及y轴的移动向量，取值范围为-0.5 ~ 0.5
-	            vy: -Math.cos(deg)*2,
-	            life: live*5,
+                tx:mx,
+                ty:my,
+	            life: 100,
 	            color:colors[parseInt(Math.random() * colors.length)],
 	            size:10
 	        })
