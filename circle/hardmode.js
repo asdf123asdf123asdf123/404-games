@@ -83,7 +83,7 @@ function drawpoints() { //绘制粒子
 	            sy: my+Math.cos(deg)*500,
                 tx:mx,
                 ty:my,
-	            life: live*5,
+	            life: 100,
 	            color:colors[parseInt(Math.random() * colors.length)],
 	            size:10
 	        })
