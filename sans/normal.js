@@ -39,7 +39,13 @@ function drawpoints() { //绘制粒子
     if(hp<=0){
     	return
 	}
-	mx+=Math.min((mox-mx)/10,20);
+	if(Math.abs((mox-mx)/10)<=20)
+		mx+=(mox-mx)/10;
+	else
+		if(mx<=mox)
+			mx+=20;
+		else
+			mx-=20;
     my+=g;
     g+=1;
     my=Math.min(my,innerHeight)
