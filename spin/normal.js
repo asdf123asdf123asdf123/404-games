@@ -80,11 +80,11 @@ function drawpoints() { //绘制粒子
     			sx=Math.random()*innerWidth
 				sy=parseInt(Math.random()+0.5)*innerHeight
 				if(sy==0){
-					vx=parseInt(Math.random()+0.5)*Math.random()*10
+					vx=Math.random()*10-5
 					vy=Math.random()*10
 				}
 				else{
-					vx=parseInt(Math.random()+0.5)*Math.random()*10
+					vx=Math.random()*10-5
 					vy=-Math.random()*10
 				}
 			}
@@ -93,11 +93,11 @@ function drawpoints() { //绘制粒子
 				sy=Math.random()*innerHeight
 				if(sx==0){
 					vx=Math.random()*10
-					vy=parseInt(Math.random()+0.5)*Math.random()*10
+					vy=Math.random()*10-5
 				}
 				else{
 					vx=-Math.random()*10
-					vy=parseInt(Math.random()+0.5)*Math.random()*10
+					vy=Math.random()*10-5
 				}
 			}
 	    	for(let i=1;i<=t;i++){
