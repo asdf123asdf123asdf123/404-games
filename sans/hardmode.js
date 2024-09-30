@@ -158,7 +158,7 @@ function drawpoints() { //绘制粒子
         ctx.arc(point.sx, point.sy, point.size, Math.PI * 2, false) //根据粒子属性画圆
         ctx.fillStyle = "rgba(" + point.color + "," + 255 + ")" //根据粒子属性设置填充颜色及透明度
         ctx.fill() //填充颜色
-        point.life-- //生命值减1
+        point.life-=50 //生命值减1
         point.sx += point.vx * 3 //根据向量值改变粒子位置
         point.sy += point.vy * 3
     }
