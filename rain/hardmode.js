@@ -60,6 +60,13 @@
 			point.sx=point.sx+Math.sin(point.r)*point.sp;
 			point.sy=point.sy+Math.cos(point.r)*point.sp;
 		}
+        points.sort((a,b)=>((mx-a.sx)*(mx-a.sx)+(my-a.sy)*(my-a.sy))-((mx-b.sx)*(mx-b.sx)+(my-b.sy)*(my-b.sy)))
+	    	for(let i=0;i<Math.min(points.length,25);i++){
+	    		let ch=i;
+	    		points[ch].r=Math.atan((mx-points[ch].sx)/(my-points[ch].sy));
+                if(my-points[ch].sy<=0)
+        			points[ch].r+=Math.PI;
+			}
 		if(cnt%10==0){
 			if(cnt%50==0)
 				sc++;
@@ -73,13 +80,6 @@
 		            color:colors[parseInt(Math.random() * colors.length)],
 		            size:10
 		        })
-			}
-            points.sort((a,b)=>((mx-a.sx)*(mx-a.sx)+(my-a.sy)*(my-a.sy))-((mx-b.sx)*(mx-b.sx)+(my-b.sy)*(my-b.sy)))
-	    	for(let i=0;i<5;i++){
-	    		let ch=i;
-	    		points[ch].r=Math.atan((mx-points[ch].sx)/(my-points[ch].sy));
-                if(my-points[ch].sy<=0)
-        			points[ch].r+=Math.PI;
 			}
 			if(sc%tt==0){
                 sc=1;
