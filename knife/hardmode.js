@@ -82,7 +82,7 @@
 						sx:line.sx+x*Math.cos(line.r+Math.PI/2)*5,
 						sy:line.sy+x*Math.sin(line.r+Math.PI/2)*5,
 						size:10,
-						life:62.5,
+						life:37.5,
 						color:colors[parseInt(Math.random()*colors.length)],
 					});
 				}
