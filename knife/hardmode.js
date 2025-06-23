@@ -63,8 +63,10 @@
 			ctx.beginPath();
 			ctx.moveTo(line.sx-20*Math.cos(line.r),line.sy-20*Math.sin(line.r));
 			ctx.lineTo(line.sx+20*Math.cos(line.r),line.sy+20*Math.sin(line.r));
-			ctx.moveTo(line.sx-20*Math.cos(line.r+Math.PI/2),line.sy-20*Math.sin(line.r+Math.PI/2));
-			ctx.lineTo(line.sx+20*Math.cos(line.r+Math.PI/2),line.sy+20*Math.sin(line.r+Math.PI/2));
+			ctx.moveTo(line.sx-20*Math.cos(line.r+Math.PI/3),line.sy-20*Math.sin(line.r+Math.PI/3));
+			ctx.lineTo(line.sx+20*Math.cos(line.r+Math.PI/3),line.sy+20*Math.sin(line.r+Math.PI/3));
+			ctx.moveTo(line.sx-20*Math.cos(line.r+Math.PI/3*2),line.sy-20*Math.sin(line.r+Math.PI/3*2));
+			ctx.lineTo(line.sx+20*Math.cos(line.r+Math.PI/3*2),line.sy+20*Math.sin(line.r+Math.PI/3*2));
 			ctx.strokeStyle="rgba(255,0,0,"+(50-line.life)/50+")";
 			ctx.stroke();
 			line.life--;
@@ -79,8 +81,15 @@
 						color:colors[parseInt(Math.random()*colors.length)],
 					});
 					points.push({
-						sx:line.sx+x*Math.cos(line.r+Math.PI/2)*5,
-						sy:line.sy+x*Math.sin(line.r+Math.PI/2)*5,
+						sx:line.sx+x*Math.cos(line.r+Math.PI/3)*5,
+						sy:line.sy+x*Math.sin(line.r+Math.PI/3)*5,
+						size:10,
+						life:37.5,
+						color:colors[parseInt(Math.random()*colors.length)],
+					});
+					points.push({
+						sx:line.sx+x*Math.cos(line.r+Math.PI/3*2)*5,
+						sy:line.sy+x*Math.sin(line.r+Math.PI/3*2)*5,
 						size:10,
 						life:37.5,
 						color:colors[parseInt(Math.random()*colors.length)],
