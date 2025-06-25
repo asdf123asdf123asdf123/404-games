@@ -61,11 +61,12 @@
 		for(let i=0;i<lines.length;i++){
 			let line=lines[i];
 			ctx.beginPath();
-			ctx.moveTo(line.sx-20*Math.cos(line.r),line.sy-20*Math.sin(line.r));
-			ctx.lineTo(line.sx+20*Math.cos(line.r),line.sy+20*Math.sin(line.r));
-			ctx.moveTo(line.sx-20*Math.cos(line.r+Math.PI/2),line.sy-20*Math.sin(line.r+Math.PI/2));
-			ctx.lineTo(line.sx+20*Math.cos(line.r+Math.PI/2),line.sy+20*Math.sin(line.r+Math.PI/2));
+			ctx.moveTo(line.sx-1000*Math.cos(line.r),line.sy-1000*Math.sin(line.r));
+			ctx.lineTo(line.sx+1000*Math.cos(line.r),line.sy+1000*Math.sin(line.r));
+			ctx.moveTo(line.sx-1000*Math.cos(line.r+Math.PI/2),line.sy-1000*Math.sin(line.r+Math.PI/2));
+			ctx.lineTo(line.sx+1000*Math.cos(line.r+Math.PI/2),line.sy+1000*Math.sin(line.r+Math.PI/2));
 			ctx.strokeStyle="rgba(255,0,0,"+(50-line.life)/50+")";
+			ctx.lineWidth=10;
 			ctx.stroke();
 			line.life--;
 			if(line.life<=0){
